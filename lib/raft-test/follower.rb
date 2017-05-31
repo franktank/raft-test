@@ -15,6 +15,8 @@ class Follower
     if is_valid_vote_request?(ct, cid, llidx, llt)
       node.voted_for = cid
       # need to update a node's log, log_entries, current_term, voted_for, cluster?
+      # persistent stuff -> Figure 3.1 current_term, voted_for, and log
+
       term = node.current_term
       vote_granted = true
     else
