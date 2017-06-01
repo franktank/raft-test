@@ -7,7 +7,9 @@ def raft
   # 4 message types - RequestVoteRequest, RequestVoteResponse
   # AppendEntriesRequest, AppendEntriesResponse
 
-
+  ##### GLOBAL VARIABLES #####
+  # msg - bag of records representing requests and responses sent from one server to another
+  # $msg = []
 
   ######### Per server needs to have ##########
   ### Server Vars

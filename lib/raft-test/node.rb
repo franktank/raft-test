@@ -1,22 +1,24 @@
 class Node
-  attr_accessor :role, :timer
-  def initialize(addr, timer, cluster)
+  attr_accessor :state, :timer
+  def initialize(id, addr, timer, all_servers)
     @timer = timer
     @node_addr = addr
-    @cluster = cluster
+    @all_servers = all_servers # currently just [] of server ids
 
     # update on stable storage before responding to RPCs
     @current_term = 0
     @voted_for = nil
-    @log = []
+
+
+    @log = [] # log var
 
     # volatile for all nodes
     # index of highest log entry known to be committed
-    @commit_index = 0
+    @commit_index = 0 # log var
     # index of highest log entry applied to state machine
     @last_applied = 0
 
-    @role = Follower.new(self)
+    @state = Follower.new(self)
   end
 
   # Method to check to see if request term is greater than current term,
