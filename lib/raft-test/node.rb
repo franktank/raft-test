@@ -1,6 +1,7 @@
 class Node
   attr_accessor :role
-  def initialize(id)
+  def initialize(id, timer)
+    @timer = timer
     @node_id = id
 
     # update on stable storage before responding to RPCs
@@ -16,4 +17,9 @@ class Node
 
     @role = Follower.new(self)
   end
+
+  # Method to check to see if request term is greater than current term,
+  # If so update the current term, role to follower, voted_for to nil
+  
+
 end
