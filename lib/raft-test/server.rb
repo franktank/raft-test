@@ -1,7 +1,9 @@
 class Server
-  def initialize(address)
+  def initialize(node_id ,address, cluster)
+    # address and node_id come from cluster, will iterate through the cluster to get these
+    # cluster is hash, key node_id, value address
     @timer = Timer.new
-    @node = Node.new(address, timer)
+    @node = Node.new(address, timer, cluster)
   end
 end
 

@@ -1,6 +1,7 @@
 class Follower
   def initialize(node)
     @node = node
+    @election_timeout = node.timer.next
   end
 
   # Leaders can send request for follower to vote for them

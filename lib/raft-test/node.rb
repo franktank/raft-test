@@ -1,8 +1,9 @@
 class Node
-  attr_accessor :role
-  def initialize(id, timer)
+  attr_accessor :role, :timer
+  def initialize(addr, timer, cluster)
     @timer = timer
-    @node_id = id
+    @node_addr = addr
+    @cluster = cluster
 
     # update on stable storage before responding to RPCs
     @current_term = 0
@@ -20,6 +21,6 @@ class Node
 
   # Method to check to see if request term is greater than current term,
   # If so update the current term, role to follower, voted_for to nil
-  
+
 
 end
